@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scam Message Detector</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            text-align: center;
+            margin-top: 50px;
+        }
+        textarea {
+            width: 60%;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .safe { color: green; }
+        .scam { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Scam Message Detector 🔍</h1>
+    <form method="post">
+        <textarea name="message" placeholder="Paste your message here..."></textarea><br>
+        <button type="submit">Check Message</button>
+    </form>
+
+    {% if result %}
+        <div class="result {{ 'scam' if 'Suspicious' in result else 'safe' }}">{{ result }}</div>
+    {% endif %}
+</body>
+</html>
